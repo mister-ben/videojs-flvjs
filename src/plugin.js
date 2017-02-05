@@ -24,7 +24,7 @@ class Flvjs extends Html5 {
       this.flvPlayer.detachMediaElement();
       this.flvPlayer.destroy();
     }
-    this.flvPlayer = flvjs.createPlayer({
+    this.flvPlayer = window.flvjs.createPlayer({
       type: 'flv',
       url: src,
       cors: true
@@ -43,7 +43,8 @@ class Flvjs extends Html5 {
  *          - False otherwise.
  */
 Flvjs.isSupported = function() {
-  return (window.flvjs && window.flvjs.isSupported());
+
+  return window.flvjs && window.flvjs.isSupported();
 };
 
 /**
@@ -54,7 +55,7 @@ Flvjs.isSupported = function() {
 Flvjs.formats = {
   'video/flv': 'FLV',
   'video/x-flv': 'FLV'
-}
+};
 
 /**
  * Check if the tech can support the given type
@@ -65,7 +66,6 @@ Flvjs.formats = {
  */
 Flvjs.canPlayType = function(type) {
   if (Flvjs.isSupported() && type in Flvjs.formats) {
-    console.log('maybe');
     return 'maybe';
   }
 
