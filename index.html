@@ -3,13 +3,32 @@
 <head>
   <meta charset="utf-8">
   <title>videojs-flvjs Demo</title>
-  <link href="/node_modules/video.js/dist/video-js.css" rel="stylesheet">
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
 </head>
 <body>
   <h1>Video.js tech for FLV playback using flv.js</h1>
+  <p>
+    This tech uses <a href="https://github.com/Bilibili/flv.js/">hls.js</a> to play FLV files using Media Source Extenstions.
+  </p>
   <video id="videojs-flvjs-player" class="video-js vjs-default-skin" controls>
     <source src="bbb.flv" type='video/x-flv'>
   </video>
+  <p>
+    To use, add flv.js and this plugin to the page. If you are using Video.js 5, you will need to set the tech order. From Video.js 6, the default tech order is updated automatically.
+  </p>
+  <pre><code>
+&lt;link href="//path/to/video-js.css" rel="stylesheet"&gt;
+&lt;script src="//path/to/video.min.js"&gt;&lt;/script&gt;
+&lt;script src="//path/to/flv.min.js"&gt;&lt;/script&gt;
+&lt;script src="//path/to/videojs-flvjs.min.js"&gt;&lt;/script&gt;
+&lt;video id="videojs-flvjs-player" class="video-js vjs-default-skin" controls&gt;
+  &lt;source src="movie.flv" type='video/x-flv'&gt;
+&lt;/video&gt;
+&lt;script&gt;
+  videojs('videojs-flvjs-player', {
+    techOrder: ['html5', 'flvjs']
+  });
+&lt;/script&gt;</code></pre>
   <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
   <script src="https://unpkg.com/flv.js/dist/flv.min.js"></script>
   <script src="https://unpkg.com/videojs-flvjs/dist/videojs-flvjs.min.js"></script>
