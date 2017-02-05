@@ -6,8 +6,6 @@ import videojs from 'video.js';
 
 import plugin from '../src/plugin';
 
-const Player = videojs.getComponent('Player');
-
 QUnit.test('the environment is sane', function(assert) {
   assert.strictEqual(typeof Array.isArray, 'function', 'es5 exists');
   assert.strictEqual(typeof sinon, 'object', 'sinon exists');
@@ -37,22 +35,21 @@ QUnit.module('videojs-flvjs', {
   }
 });
 
-QUnit.test('registers itself with video.js', function(assert) {
+QUnit.test('can play flv source', function(assert) {
   assert.expect(2);
 
-  assert.strictEqual(
-    Player.prototype.flvjs,
-    plugin,
-    'videojs-flvjs plugin was registered'
-  );
-
-  this.player.flvjs();
-
-  // Tick the clock forward enough to trigger the player to be "ready".
-  this.clock.tick(1);
+  // Fake the presence of flv.js and that it's on a supported browser
+  window.flvjs = {};
+  window.flvjs.isSupported = function() {
+    return true;
+  };
 
   assert.ok(
-    this.player.hasClass('vjs-flvjs'),
-    'the plugin adds a class to the player'
-  );
+    plugin.canPlaySource({type: 'video/flv' }, {}),
+    'video/flv supported');
+  assert.ok(
+    plugin.canPlaySource({type: 'video/x-flv' }, {}),
+    'video/x-flv supported');
+
+  delete window.flvjs;
 });
