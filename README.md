@@ -21,9 +21,13 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <script src="//path/to/flv.js"></script>
 <script src="//path/to/videojs-flvjs.min.js"></script>
 <script>
-  var player = videojs('my-video');
+  var player = videojs('my-video', {
+    techOrder: {['html5', 'flvjs']}
+  });
 </script>
 ```
+
+You only need to set the techOrder in Video.js version 5. In version 6 techs add themselves to the default techorder. If you are using both the flash and flvjs techs, flvjs should come first.
 
 ### Browserify
 
