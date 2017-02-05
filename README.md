@@ -1,6 +1,10 @@
 # videojs-flvjs
 
-Video.js tech to use [flv.js](https://github.com/Bilibili/flv.js) FLV playback in MSE. Check out the flv.js docs for details on browser support etc.
+Video.js tech to use [flv.js](https://github.com/Bilibili/flv.js) for FLV playback using MSE instead of Flash.
+
+Check out the flv.js docs for details on its capabilities, browser support etc. Note that you need [CORS headers](https://github.com/Bilibili/flv.js/blob/master/docs/cors.md) if your video is being hosted at a different origin.
+
+[Example](https://github.com/mister-ben/videojs-flvjs)
 
 ## Installation
 
@@ -60,7 +64,6 @@ require(['video.js', 'videojs-flvjs'], function(videojs) {
 
 ## License
 
-Apache-2.0. Copyright (c) mister-ben &lt;git@misterben.me&gt;
-
+Apache-2.0. Copyright (c) mister-ben
 
 [videojs]: http://videojs.com/
