@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>videojs-flvjs Demo</title>
+  <link href="/node_modules/video.js/dist/video-js.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Video.js tech for FLV playback using flv.js</h1>
+  <video id="videojs-flvjs-player" class="video-js vjs-default-skin" controls>
+    <source src="bbb.flv" type='video/x-flv'>
+  </video>
+  <script src="/node_modules/video.js/dist/video.js"></script>
+  <script src="/node_modules/flv.js/dist/flv.js"></script>
+  <script src="/dist/videojs-flvjs.js"></script>
+  <script>
+    (function(window, videojs) {
+      // Setting the techOrder is necessary in 5.x
+      // In 6.x techs are added automatically
+      var player = window.player = videojs('videojs-flvjs-player', {
+        techOrder: ['html5', 'flvjs']
+      });
+    }(window, window.videojs));
+  </script>
+</body>
+</html>
