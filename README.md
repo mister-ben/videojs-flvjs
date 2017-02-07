@@ -26,7 +26,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <script src="//path/to/videojs-flvjs.min.js"></script>
 <script>
   var player = videojs('my-video', {
-    techOrder: ['html5', 'flvjs']}
+    techOrder: ['html5', 'flvjs']
   });
 </script>
 ```
