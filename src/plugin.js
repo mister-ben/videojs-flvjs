@@ -27,7 +27,8 @@ class Flvjs extends Html5 {
     this.flvPlayer = window.flvjs.createPlayer({
       type: 'flv',
       url: src,
-      cors: true
+      cors: true,
+      hasAudio: false
     });
     this.flvPlayer.attachMediaElement(this.el_);
     this.flvPlayer.load();
