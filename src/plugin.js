@@ -26,9 +26,10 @@ class Flvjs extends Html5 {
     }
     const options = this.options_.flvjs;
     const mediaDataSource = options.mediaDataSource;
+    const config = options.config;
+
     mediaDataSource.src = 'flv';
     mediaDataSource.url = src;
-    const config = options.config;
     this.flvPlayer = window.flvjs.createPlayer(mediaDataSource, config);
     this.flvPlayer.attachMediaElement(this.el_);
     this.flvPlayer.load();
