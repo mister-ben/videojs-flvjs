@@ -21,13 +21,30 @@ To include videojs-flvjs on your website or web application, use any of the foll
 This is the simplest case. Get the script in whatever way you prefer and include the plugin _after_ you include [video.js][videojs], so that the `videojs` global is available. You also need to include [flv.js](https://github.com/Bilibili/flv.js).
 
 ```html
+<link href="//path/to/video-js.css" rel="stylesheet">
 <script src="//path/to/video.min.js"></script>
-<script src="//path/to/flv.js"></script>
+<script src="//path/to/flv.min.js"></script>
 <script src="//path/to/videojs-flvjs.min.js"></script>
+<video id="videojs-flvjs-player" class="video-js vjs-default-skin" controls></video>
 <script>
-  var player = videojs('my-video', {
-    techOrder: ['html5', 'flvjs']
-  });
+  var options = {
+    techOrder: ['html5', 'flvjs'],
+    sources: [
+      {
+        src: 'movie.flv',
+        type: 'video/flv'
+      },
+    ],
+    flvjs: {
+      mediaDataSource: {
+        isLive: true,
+        cors: true,
+        withCredentials: false,
+      },
+      // config: {},
+    },
+  };
+  videojs('videojs-flvjs-player', options);
 </script>
 ```
 
