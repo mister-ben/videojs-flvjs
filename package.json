@@ -29,7 +29,8 @@
     "preversion": "npm test",
     "version": "babel-node scripts/version.js",
     "postversion": "babel-node scripts/postversion.js",
-    "prepublish": "npm run build"
+    "prepare": "npm run build",
+    "prepush": "npm run lint"
   },
   "keywords": [
     "videojs",
@@ -86,7 +87,7 @@
   "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-env": "^1.6.0",
     "babelify": "^7.3.0",
     "bannerize": "^1.0.2",
     "bluebird": "^3.2.2",
@@ -96,9 +97,9 @@
     "bundle-collapser": "^1.2.1",
     "chg": "^0.3.2",
     "flv.js": "^1.1.0",
-    "ghooks": "^1.3.2",
     "glob": "^6.0.3",
     "global": "^4.3.0",
+    "husky": "^0.14.3",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
     "karma-detect-browsers": "^2.0.2",
@@ -115,10 +116,5 @@
     "sinon": "~1.14.0",
     "uglify-js": "^2.6.1",
     "videojs-standard": "^4.0.0"
-  },
-  "config": {
-    "ghooks": {
-      "pre-push": "npm run lint"
-    }
   }
 }
