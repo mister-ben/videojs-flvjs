@@ -8,9 +8,9 @@
 <body>
   <h1>Video.js tech for FLV playback using flv.js</h1>
   <p>
-    This tech uses <a href="https://github.com/Bilibili/flv.js/">hls.js</a> to play FLV files using Media Source Extenstions.
+    This tech uses <a href="https://github.com/Bilibili/flv.js/">flv.js</a> to play FLV files using Media Source Extenstions.
   </p>
-  <video id="videojs-flvjs-player" class="video-js vjs-default-skin" controls>
+  <video id="videojs-flvjs-player" class="video-js" controls>
     <source src="bbb.flv" type='video/x-flv'>
   </video>
   <p>
@@ -25,8 +25,11 @@
   &lt;source src="movie.flv" type='video/x-flv'&gt;
 &lt;/video&gt;
 &lt;script&gt;
+  // Setting the techOrder is necessary in 5.x
+  // In 6.x techs are added automatically
   videojs('videojs-flvjs-player', {
-    techOrder: ['html5', 'flvjs']
+    // 5.x only:
+    // techOrder: ['html5', 'flvjs']
   });
 &lt;/script&gt;</code></pre>
   <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
@@ -37,7 +40,7 @@
       // Setting the techOrder is necessary in 5.x
       // In 6.x techs are added automatically
       var player = window.player = videojs('videojs-flvjs-player', {
-        techOrder: ['html5', 'flvjs']
+      //  techOrder: ['html5', 'flvjs']
       });
     }(window, window.videojs));
   </script>
