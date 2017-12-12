@@ -31,7 +31,15 @@ You need to include [flv.js](https://github.com/Bilibili/flv.js) itself.
   // For v5 the tech must be added to the tech order.
   // For v6 this is not needed.
   videojs('videojs-flvjs-player', {
-    techOrder: ['html5', 'flvjs']
+    techOrder: ['html5', 'flvjs'],
+    flvjs: {
+      mediaDataSource: {
+        isLive: true,
+        cors: true,
+        withCredentials: false,
+      },
+      // config: {},
+    },
   });
 </script>
 ```
