@@ -24,11 +24,13 @@ class Flvjs extends Html5 {
       this.flvPlayer.detachMediaElement();
       this.flvPlayer.destroy();
     }
-    this.flvPlayer = window.flvjs.createPlayer({
-      type: 'flv',
-      url: src,
-      cors: true
-    });
+
+    const mediaDataSource = this.options_.mediaDataSource;
+    const config = this.options_.config;
+
+    mediaDataSource.type = mediaDataSource.type === undefined ? 'flv' : mediaDataSource.type;
+    mediaDataSource.url = src;
+    this.flvPlayer = window.flvjs.createPlayer(mediaDataSource, config);
     this.flvPlayer.attachMediaElement(this.el_);
     this.flvPlayer.load();
   }
