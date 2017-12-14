@@ -3,6 +3,7 @@
  */
 
 import videojs from 'video.js';
+import flvjs from 'flv.js';
 
 const Html5 = videojs.getTech('Html5');
 
@@ -30,7 +31,7 @@ class Flvjs extends Html5 {
 
     mediaDataSource.type = mediaDataSource.type === undefined ? 'flv' : mediaDataSource.type;
     mediaDataSource.url = src;
-    this.flvPlayer = window.flvjs.createPlayer(mediaDataSource, config);
+    this.flvPlayer = flvjs.createPlayer(mediaDataSource, config);
     this.flvPlayer.attachMediaElement(this.el_);
     this.flvPlayer.load();
   }
@@ -55,7 +56,7 @@ class Flvjs extends Html5 {
  */
 Flvjs.isSupported = function() {
 
-  return window.flvjs && window.flvjs.isSupported();
+  return flvjs && flvjs.isSupported();
 };
 
 /**
