@@ -58,8 +58,10 @@ class Flvjs extends Html5 {
    * Dispose of flvjs.
    */
   dispose() {
-    this.flvPlayer.detachMediaElement();
-    this.flvPlayer.destroy();
+    if (this.flvPlayer) {
+      this.flvPlayer.detachMediaElement();
+      this.flvPlayer.destroy();
+    }
     super.dispose();
   }
 
