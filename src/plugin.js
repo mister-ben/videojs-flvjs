@@ -56,7 +56,7 @@ class Flvjs extends Html5 {
  */
 Flvjs.isSupported = function() {
 
-  return flvjs && flvjs.isSupported();
+  return flvjs.isSupported();
 };
 
 /**
