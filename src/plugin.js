@@ -6,14 +6,33 @@ import videojs from 'video.js';
 import flvjs from 'flv.js';
 
 const Html5 = videojs.getTech('Html5');
+const mergeOptions = videojs.mergeOptions || videojs.util.mergeOptions;
+const defaults = {
+  mediaDataSource: {},
+  config: {}
+};
 
 class Flvjs extends Html5 {
 
+  /**
+   * Create an instance of this Tech.
+   *
+   * @param {Object} [options]
+   *        The key/value store of player options.
+   *
+   * @param {Component~ReadyCallback} ready
+   *        Callback function to call when the `Flvjs` Tech is ready.
+   */
+   constructor(options, ready) {
+     options = mergeOptions(defaults, options);
+     super(options, ready);
+   }
+
    /**
-    * A getter/setter for the `Flash` Tech's source object.
+    * A getter/setter for the `Flvjs` Tech's source object.
     *
     * @param {Tech~SourceObject} [src]
-    *        The source object you want to set on the `Flash` techs.
+    *        The source object you want to set on the `Flvjs` techs.
     *
     * @return {Tech~SourceObject|undefined}
     *         - The current source object when a source is not passed in.
