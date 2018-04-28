@@ -14,14 +14,14 @@ npm install --save videojs-flvjs
 
 ## Usage
 
-You need to include [flv.js](https://github.com/Bilibili/flv.js) itself.
+You do **NOT** need to include [flv.js](https://github.com/Bilibili/flv.js) itself.
 
 ```html
 <!-- Video.js -->
 <link href="//path/to/video-js.css" rel="stylesheet">
 <script src="//path/to/video.min.js"></script>
 <!-- flv.js -->
-<script src="//path/to/flv.min.js"></script>
+<!-- <script src="//path/to/flv.min.js"></script> -->
 <!-- videojs-flvjs -->
 <script src="//path/to/videojs-flvjs.min.js"></script>
 <video id="videojs-flvjs-player" class="video-js vjs-default-skin" controls>
