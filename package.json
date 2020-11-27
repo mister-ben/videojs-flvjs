@@ -1,12 +1,13 @@
 {
   "name": "videojs-flvjs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Video.js tech for FLV playback in MSE with flv.js",
   "main": "es5/plugin.js",
   "generator-videojs-plugin": {
     "version": "2.2.0"
   },
   "scripts": {
+    "install-peers": "npm-install-peers",
     "prebuild": "npm run clean",
     "build": "npm-run-all -p build:*",
     "build:js": "npm-run-all build:js:babel build:js:browserify build:js:bannerize build:js:collapse build:js:uglify",
@@ -109,6 +110,7 @@
     "karma-safari-launcher": "^0.1.1",
     "lodash": "^4.11.2",
     "mkdirp": "^0.5.1",
+    "npm-install-peers": "^1.2.1",
     "npm-run-all": "^1.5.1",
     "qunitjs": "^1.21.0",
     "rimraf": "^2.5.1",
@@ -116,5 +118,8 @@
     "sinon": "~1.14.0",
     "uglify-js": "^2.6.1",
     "videojs-standard": "^4.0.0"
+  },
+  "peerDependencies": {
+    "video.js": ">=5.0.0"
   }
 }
