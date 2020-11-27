@@ -82,8 +82,7 @@
     "test/"
   ],
   "dependencies": {
-    "browserify-versionify": "^1.0.6",
-    "video.js": "^5.10.1"
+    "browserify-versionify": "^1.0.6"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
