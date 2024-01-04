@@ -1,4 +1,5 @@
 import document from 'global/document';
+import window from 'global/window';
 
 import QUnit from 'qunit';
 import sinon from 'sinon';
@@ -46,10 +47,12 @@ QUnit.test('can play flv source', function(assert) {
 
   assert.ok(
     plugin.canPlaySource({type: 'video/flv' }, {}),
-    'video/flv supported');
+    'video/flv supported'
+  );
   assert.ok(
     plugin.canPlaySource({type: 'video/x-flv' }, {}),
-    'video/x-flv supported');
+    'video/x-flv supported'
+  );
 
   delete window.flvjs;
 });

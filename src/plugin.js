@@ -3,14 +3,20 @@
  */
 
 import videojs from 'video.js';
+import window from 'global/window';
 
 const Html5 = videojs.getTech('Html5');
-const mergeOptions = videojs.mergeOptions || videojs.util.mergeOptions;
+const mergeOptions = videojs.obj ? videojs.obj.merge : videojs.mergeOptions || videojs.util.mergeOptions;
 const defaults = {
   mediaDataSource: {},
   config: {}
 };
 
+/**
+ * Flvjs tech that simply wires up fv.js to a Video.js tech
+ *
+ * @see {@link https://github.com/bilibili/flv.js|flv.js}
+ */
 class Flvjs extends Html5 {
 
   /**
@@ -22,20 +28,16 @@ class Flvjs extends Html5 {
    * @param {Component~ReadyCallback} ready
    *        Callback function to call when the `Flvjs` Tech is ready.
    */
-   constructor(options, ready) {
-     options = mergeOptions(defaults, options);
-     super(options, ready);
-   }
+  constructor(options, ready) {
+    options = mergeOptions(defaults, options);
+    super(options, ready);
+  }
 
-   /**
-    * A getter/setter for the `Flvjs` Tech's source object.
+  /**
+    * Setter for the `Flvjs` Tech's source object.
     *
     * @param {Tech~SourceObject} [src]
-    *        The source object you want to set on the `Flvjs` techs.
-    *
-    * @return {Tech~SourceObject|undefined}
-    *         - The current source object when a source is not passed in.
-    *         - undefined when setting
+    *        The source object to set on the `Flvjs` techs.
     */
   setSrc(src) {
     if (this.flvPlayer) {
@@ -106,6 +108,7 @@ Flvjs.canPlayType = function(type) {
 
 /**
  * Check if the tech can support the given source
+ *
  * @param {Object} srcObj
  *        The source object
  * @param {Object} options

@@ -1,13 +1,17 @@
 module.exports = function(config) {
   var detectBrowsers = {
     enabled: false,
-    usePhantomJS: false
-  };
+    usePhantomJS: false,
+    postDetection: function(availableBrowsers) {
+      // Remove Firefox becuase the latest version of Firefox doesn't work with karma
+      var i = availableBrowsers.indexOf('Firefox');
 
-  // On Travis CI, we can only run in Firefox.
-  if (process.env.TRAVIS) {
-    config.browsers = ['Firefox'];
-  }
+      if (i > -1) {
+        availableBrowsers.splice(i, 1);
+      }
+      return availableBrowsers;
+    }
+  };
 
   // If no browsers are specified, we enable `karma-detect-browsers`
   // this will detect all browsers that are available for testing
