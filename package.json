@@ -81,17 +81,22 @@
     "test/"
   ],
   "dependencies": {
-    "browserify-versionify": "^1.0.6",
-    "video.js": "^5.10.1"
+    "browserify-versionify": "^1.0.6"
+  },
+  "peerDependencies": {
+    "video.js": "^6 || ^7 || ^8",
+    "flv.js": "^1"
   },
   "devDependencies": {
-    "babel-cli": "^6.14.0",
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.7",
+    "@babel/node": "^7.22.19",
+    "@babel/preset-env": "^7.23.7",
     "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-preset-env": "^1.6.0",
-    "babelify": "^7.3.0",
+    "babelify": "^10.0.0",
     "bannerize": "^1.0.2",
     "bluebird": "^3.2.2",
-    "browserify": "^12.0.2",
+    "browserify": "^17.0.0",
     "browserify-shim": "^3.8.12",
     "budo": "^8.0.4",
     "bundle-collapser": "^1.2.1",
@@ -100,21 +105,34 @@
     "glob": "^6.0.3",
     "global": "^4.3.0",
     "husky": "^0.14.3",
-    "karma": "^0.13.19",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-detect-browsers": "^2.0.2",
-    "karma-firefox-launcher": "^0.1.7",
-    "karma-ie-launcher": "^0.2.0",
-    "karma-qunit": "^0.1.9",
-    "karma-safari-launcher": "^0.1.1",
+    "karma": "^6.4.2",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-cli": "^2.0.0",
+    "karma-detect-browsers": "^2.3.3",
+    "karma-firefox-launcher": "^2.1.2",
+    "karma-qunit": "^4.1.2",
+    "karma-safari-launcher": "^1.0.0",
     "lodash": "^4.11.2",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^1.5.1",
-    "qunitjs": "^1.21.0",
+    "qunit": "^2.20.0",
+    "qunitjs": "^2.4.1",
     "rimraf": "^2.5.1",
     "semver": "^5.3.0",
     "sinon": "~1.14.0",
-    "uglify-js": "^2.6.1",
-    "videojs-standard": "^4.0.0"
-  }
+    "uglify-js": "^3.17.4",
+    "video.js": "^8.9.0",
+    "videojs-standard": "^9.0.1"
+  },
+  "browserslist": [
+    "last 3 major versions",
+    "Firefox ESR",
+    "Chrome >= 53",
+    "not dead",
+    "not ie 11",
+    "not baidu 7",
+    "not and_qq 11",
+    "not and_uc 12",
+    "not op_mini all"
+  ]
 }
